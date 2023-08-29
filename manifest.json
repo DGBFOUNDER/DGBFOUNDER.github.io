@@ -1,0 +1,75 @@
+{
+  "author": "This Was All Possible To PWA Builder, Glitch, DGB, W3 Schools, www-db.deis.unibo.it/courses/TW/DOCS/w3schools/html/default.asp And The Starter Pack. PWA builder made it easy to check if I had met all the requirements.",
+  "_comment": "App Name For Exe 'Name'VVV",
+  "name": "DEGALAND/DGB APP AND WEBSITE",
+  "_comment": "App Name For An App Store 'Short_Name'VVV",
+  "short_name": "DEGALAND",
+  "_comment": "App Description For An App Store And Can Be Seen In Properties Via Right Clicking 'Description'VVV",
+  "description": "The DGB mobile app for offline usage, games, and more.",
+  "display": "standalone",
+  "_comment": "Allows It To Turn The Site Anyway It Wants 'Orientation'VVV",
+  "orientation": "any",
+  "_comment": "Allows Us To Click An Arrow On PC Next To The Extensions Button To Remove The Select Bar Or Not 'Display Over Ride'VVV",
+  "display_override": ["window-controls-overlay", "standalone", "browser"],
+  "background_color": "#99DAFF",
+  "theme_color": "#99DAFF",
+  "id": "https://degaland.glitch.me/",
+  "start_url": "/",
+  "scope": "/",
+  "_comment": "Tags For Play Store'Categories'VVV",
+  "categories": ["games", "degaland", "dgb", "social"],
+  "_comment": "Makes It So If It Is Already Open App It Won't Open Again And Will Show No Need To Open Again It's Already Open Lol 'Client_Mode'VVV",
+  "launch_handler": {
+    "client_mode": "focus-existing"
+  },
+  "_comment": "This Allows You To Make Custom Hotkeys To Open Up Sites And Do Actions By Right Clicking On The Exe Then On Mobile You Can Press And Hold On The App Then The Short Cut And Move It Ontop Your Mobile Destop So You Can Just Open Up 1 Page That You Care About. On Desktop You Can Right Click The .Exe And Then See The Whole List But Only The Exe Can Be Hot Keyed Directly 'Client_Mode'VVV",
+  "shortcuts": [
+    {
+      "name": "Index",
+      "url": "index.html",
+      "icons": [{ "src": "https://media.discordapp.net/attachments/1063685213206614058/1122985806915710976/Untitled_1.jpg?width=1150&height=1150", "sizes": "192x192" }]
+    },
+    {
+      "name": "About",
+      "url": "about.html",
+      "icons": [{ "src": "https://media.discordapp.net/attachments/1063685213206614058/1122985806915710976/Untitled_1.jpg?width=1150&height=1150", "sizes": "192x192" }]
+    },
+    {
+      "name": "Install",
+      "url": "install.html",
+      "icons": [{ "src": "https://media.discordapp.net/attachments/1063685213206614058/1122985806915710976/Untitled_1.jpg?width=1150&height=1150", "sizes": "192x192" }]
+    }
+  ],
+  "icons": [
+    {
+      "sizes": "512x512",
+      "type": "image/png",
+      "src": "https://media.discordapp.net/attachments/1063685213206614058/1122985806915710976/Untitled_1.jpg?width=1150&height=1150",
+      "purpose": "any"
+    },
+    {
+      "sizes": "192x192",
+      "type": "image/png",
+      "src": "https://media.discordapp.net/attachments/1063685213206614058/1122985806915710976/Untitled_1.jpg?width=1150&height=1150",
+      "purpose": "any"
+    },
+    {
+      "sizes": "180x180",
+      "type": "image/png",
+      "src": "https://media.discordapp.net/attachments/1063685213206614058/1122985806915710976/Untitled_1.jpg?width=1150&height=1150",
+      "purpose": "any"
+    },
+    {
+      "sizes": "120x120",
+      "type": "image/png",
+      "src": "https://media.discordapp.net/attachments/1063685213206614058/1122985806915710976/Untitled_1.jpg?width=1150&height=1150",
+      "purpose": "any"
+    }
+  ],
+  "_comment": "These Are Images That Will Be Shown In The App Store As App Previews 'Orientation'VVV",
+  "screenshots": [
+    {
+      "src": "assets/screen.png"
+    }
+  ]
+}
