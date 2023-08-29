@@ -13,7 +13,9 @@
   "display_override": ["window-controls-overlay", "standalone", "browser"],
   "background_color": "#99DAFF",
   "theme_color": "#99DAFF",
+  "_comment": "Both Id Scope And Start Url Can Be Founf In Chrome Devtools Application Mainfest",
   "id": "https://dgbfounder.github.io/",
+  "scope": "/"
   "start_url": "/",
   "_comment": "Tags For Play Store'Categories'VVV",
   "categories": ["games", "degaland", "dgb", "social"],
