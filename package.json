@@ -25,6 +25,12 @@
   "engines": {
     "node": "14.x"
   },
+  "repository": {
+    "url": "https://glitch.com/edit/#!/glitch-hello-installable"
+  },
+  "glitch": {
+    "projectType": "generated_static"
+  },
   "author": "Jesse von Doom <jvondoom@fastly.com>",
   "auto": {
     "plugins": [
@@ -36,5 +42,3 @@
     "onlyPublishWithReleaseLabel": true
   }
 }
-
-
