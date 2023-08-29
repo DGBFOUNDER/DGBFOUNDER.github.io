@@ -67,7 +67,7 @@ if (!isInstalledPWA && installNudge && !hideBanner) {
   installNudge.style.display = "block";
   closeButton.addEventListener("click", handleCloseButton);
 } else {
-  installNudge.style.display = "none";
+installNudge.style.display = "none";
 }
 
 /************************************************************************
