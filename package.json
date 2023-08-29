@@ -10,13 +10,13 @@
     "release": "auto shipit"
   },
   "devDependencies": {
-    "@auto-it/all-contributors": "^10.32.2",
-    "@auto-it/first-time-contributor": "^10.32.2",
-    "@auto-it/git-tag": "^10.32.3",
-    "@auto-it/released": "^10.32.2",
-    "auto": "^10.32.2",
+    "@auto-it/all-contributors": "^11.0.1",
+    "@auto-it/first-time-contributor": "^11.0.1",
+    "@auto-it/git-tag": "^11.0.1",
+    "@auto-it/released": "^11.0.1",
+    "auto": "^11.0.1",
     "express": "^4.18.2",
-    "vite": "^4.0.0"
+    "vite": "^4.4.9"
   },
   "browserslist": [
     ">0.2%",
