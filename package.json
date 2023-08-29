@@ -16,7 +16,7 @@
     "@auto-it/released": "^10.32.2",
     "auto": "^10.32.2",
     "express": "^4.18.2",
-    "vite": "^4.0.0"1
+    "vite": "^4.0.0"
   },
   "browserslist": [
     ">0.2%",
