@@ -281,3 +281,4 @@ screen.orientation.addEventListener("change", function (e) {
 
 // show/hide orientation classes
 showOrientationBlocks();
+
