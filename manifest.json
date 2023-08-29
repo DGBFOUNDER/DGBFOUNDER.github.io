@@ -15,8 +15,8 @@
   "theme_color": "#99DAFF",
   "_comment": "Both Id Scope And Start Url Can Be Founf In Chrome Devtools Application Mainfest",
   "id": "https://dgbfounder.github.io/",
-  "scope": "/"
   "start_url": "/",
+  "scope": "/",
   "_comment": "Tags For Play Store'Categories'VVV",
   "categories": ["games", "degaland", "dgb", "social"],
   "_comment": "Makes It So If It Is Already Open App It Won't Open Again And Will Show No Need To Open Again It's Already Open Lol 'Client_Mode'VVV",
