@@ -9,7 +9,7 @@
   "background_color": "#99DAFF",
   "theme_color": "#99DAFF",
   "id": "https://dgbfounder.github.io/",
-  "start_url": "/",
+  "start_url": "https://dgbfounder.github.io/",
   "categories": ["games", "degaland", "dgb", "social"],
   "launch_handler": {
     "client_mode": "focus-existing"
