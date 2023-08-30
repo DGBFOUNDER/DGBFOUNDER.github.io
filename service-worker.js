@@ -7,7 +7,7 @@
 // Specify what we want added to the cache for offline use
 self.addEventListener("install", (e) => {
   e.waitUntil(
-    caches.open("glitch-hello-installable-cache").then((cache) => {
+    caches.open("DGB").then((cache) => {
       return cache.addAll(["/", "/about.html", "/install.html", "/style.css", "/index.js"]);
     })
   );
@@ -21,7 +21,7 @@ self.addEventListener("activate", (e) => {
         cacheNames
           .filter((cacheName) => {
             // Check if the cache name doesn't match the current cache
-            return cacheName !== "glitch-hello-installable-cache";
+            return cacheName !== "DGB";
           })
           .map((cacheName) => {
             // Delete outdated cache
