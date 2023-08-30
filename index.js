@@ -58,11 +58,6 @@ const installNudge = document.querySelector("#install-nudge");
 const closeButton = document.getElementById("close-button");
 const hideBanner = localStorage.getItem("hide-install-nudge");
 
-function handleCloseButton() {
-  localStorage.setItem("hide-install-nudge", true);
-  installNudge.style.display = "none";
-}
-
 if (!isInstalledPWA && installNudge && !hideBanner) {
   installNudge.style.display = "block";
   closeButton.addEventListener("click", handleCloseButton);
@@ -79,7 +74,6 @@ Feature: Notifications
 const enablePushNotifications = false; // true to enable
 const pushServerBaseURL = ""; // your full push server URL
 const VAPID_PUBLIC_KEY = ""; // public key from push server
-
 
 // track permissions for the sake of badging
 let pushNotificationPermissionGranted = false;
