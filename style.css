@@ -18,7 +18,7 @@ START Page structure and element resets
   /* To set your own use custom-theme.css with `custom-theme` in settings.json `theme` property */
   --color-bg: #99daff; /* Used for the page body background */
   --color-bg-alt: #ffffff; /* Used for social icons on hover */
-  --color-text-main: #000000; /* List text ann social icons on hover */
+  --color-text-main: #000000; /* List text and social icons on hover */
   --color-primary: #ffffff; /* Headers and borders */
   --color-forms: #ff00bc; /* Form borders and highlights */
   --color-forms-focus: #ff9028; /* Form borders and highlights */
@@ -28,7 +28,7 @@ START Page structure and element resets
 /* Basic page style resets */
 * {
   box-sizing: border-box;
-  font-size: 16px; /* Not setting this makes iOS zooooooom too much! */
+  font-size: 16px; /* Not setting this makes iOS zoom too much! */
 }
 [hidden] {
   display: none !important;
@@ -154,10 +154,10 @@ ul {
 .wrapper a:focus {
   background: var(--color-primary);
 }
+
 /******************************************************************************
 END Page structure and element resets
 ******************************************************************************/
-
 /******************************************************************************
 START Hello PWA styles
 
@@ -271,6 +271,48 @@ p {
 }
 
 #status-area {
+  margin-top: 1rem;
+  font-family: Menlo, Consolas, Monaco, "Lucida Console", monospace;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+#status-area h2 {
+  color: #FFFFFF;
+  font-family: Menlo, Consolas, Monaco, "Lucida Console", monospace;
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+}
+
+#status-area div {
+  font-size: 0.85rem;
+  margin-bottom: 0;
+}
+
+img.install {
+  width: 375px;
+  max-width: 100%;
+  display: block;
+  margin: 0.5rem auto 1rem 0;
+}
+
+/******************************************************************************
+START Hello PWA styles
+
+You can create your own CSS file in public/styles.css
+******************************************************************************/
+
+#install-nudge a.close {
+  background-color: transparent;
+  padding: 0 0 0.25rem 0;
+  font-size: 1.5rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  -webkit-appearance: none;
+}
+
+#status-area {
   margin-top:1rem;
   font-family: Menlo, Consolas, Monaco, "Lucida Console", monospace;
   text-align: left;
@@ -295,3 +337,7 @@ img.install {
   display:block;
   margin: 0.5rem auto 1rem 0;
 }
+
+/******************************************************************************
+END Hello PWA styles
+******************************************************************************/
