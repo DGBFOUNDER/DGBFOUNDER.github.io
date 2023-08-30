@@ -80,6 +80,7 @@ const enablePushNotifications = false; // true to enable
 const pushServerBaseURL = ""; // your full push server URL
 const VAPID_PUBLIC_KEY = ""; // public key from push server
 
+
 // track permissions for the sake of badging
 let pushNotificationPermissionGranted = false;
 
