@@ -1,147 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Css For Navagation Bar Styles Must Be In The Head These Are Local HTML CSS Classes Style = Is Only For Defining 1 Value Which Doesnt Fuck Up The Globals So Its Very Specific Usage -->
-    <style>
-      body {
-        margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
-      }
-      .topnav {
-        overflow: hidden;
-        background-color: #333;
-      }
-      .topnav a {
-        float: left;
-        color: #f2f2f2;
-        text-align: center;
-        padding: 0px 0px;
-        text-decoration: none;
-        font-size: 17px;
-      }
-      .topnav a.active {
-        background-color: #04aa6d;
-        color: white;
-        float: left;
-        color: #f2f2f2;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        font-size: 17px;
-      }
-      .topnav a.inactive {
-        float: left;
-        color: #f2f2f2;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        font-size: 17px;
-      }
-    </style>
-
-    <title>ABOUT US</title>
-
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <!-- OpenGraph/Social sharing -->
-    <meta
-      name="description"
-      content="A simple starting point for your next installable PWA"
-    />
-    <!-- These Tags Are Fpr When You Share On Discord Or Social Platforms This One Below Is The Pages Description When Shared -->
-    <meta
-      name="og:description"
-      content="A simple starting point for your next installable PWA"
-    />
-    <meta
-      property="og:image"
-      content="https://media.discordapp.net/attachments/1063685213206614058/1122985806915710976/Untitled_1.jpg?width=1150&height=1150"
-    />
-    <meta property="og:title" content="Hello Installable" />
-    <meta name="twitter:card" content="summary" />
-    <link
-      rel="icon"
-      href="https://media.discordapp.net/attachments/1063685213206614058/1122985806915710976/Untitled_1.jpg?width=1150&height=1150"
-    />
-    <link rel="stylesheet" type="text/css" href="/style.css" />
-
-    <!-- PWA Setup That Puts A Download Button On Every Page Near The URL So You Can Download -->
-    <link rel="manifest" href="manifest.json" />
-    <script src="index.js" async defer></script>
-    <!-- Navagation Bar -->
-    <div class="topnav">
-      <a href="/"
-        ><img
-          src="https://media.discordapp.net/attachments/833455842728607775/928856356818137099/BtDNvObvhXcAAAAAElFTkSuQmCC.png?width=1065&height=1065"
-          style="width: 44px; height: 44px"
-      /></a>
-      <a class="inactive" href="/">Home</a>
-      <a class="active" href="about.html">News</a>
-      <a class="inactive" href="install.html">Install</a>
+<head>
+  <style>
+    body { margin: 0; font-family: Arial, Helvetica, sans-serif; }
+    .topnav { overflow: hidden; background-color: #333; }
+    .topnav a { float: left; color: #f2f2f2; text-align: center; padding: 0; text-decoration: none; font-size: 17px; }
+    .topnav a.active { background-color: #04aa6d; color: white; float: left; color: #f2f2f2; text-align: center; padding: 14px 16px; text-decoration: none; font-size: 17px; }
+    .topnav a.inactive { float: left; color: #f2f2f2; text-align: center; padding: 14px 16px; text-decoration: none; font-size: 17px; }
+  </style>
+  <title>ABOUT US</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A simple starting point for your next installable PWA" />
+  <meta name="og:description" content="A simple starting point for your next installable PWA" />
+  <meta property="og:image" content="https://media.discordapp.net/attachments/1063685213206614058/1122985806915710976/Untitled_1.jpg?width=1150&height=1150" />
+  <meta property="og:title" content="Hello Installable" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="icon" href="https://media.discordapp.net/attachments/1063685213206614058/1122985806915710976/Untitled_1.jpg?width=1150&height=1150" />
+  <link rel="stylesheet" type="text/css" href="/style.css" />
+  <link rel="manifest" href="manifest.json" />
+  <script src="index.js" async defer></script>
+  <div class="topnav">
+    <a href="/"><img src="https://media.discordapp.net/attachments/833455842728607775/928856356818137099/BtDNvObvhXcAAAAAElFTkSuQmCC.png?width=1065&height=1065" style="width: 44px; height: 44px" /></a>
+    <a class="inactive" href="/">Home</a>
+    <a class="active" href="about.html">News</a>
+    <a class="inactive" href="install.html">Install</a>
+  </div>
+</head>
+<body>
+  <main>
+    <div id="install-nudge">
+      <div class="content">
+        <div>You can install this app — no app store needed!</div>
+        <a href="install.html" class="install">INSTALL</a>
+        <a id="close-button" class="close">&#215;</a>
+      </div>
     </div>
-  </head>
-  <body>
-    <main>
-      <div id="install-nudge">
-        <div class="content">
-          <div>You can install this app — no app store needed!</div>
-          <a href="install.html" class="install">INSTALL</a>
-          <a id="close-button" class="close">&#215;</a>
+    <div class="wrapper">
+      <div class="content">
+        <h1>DGB ABOUT</h1>
+        <p>This is a starter for building a basic PWA. PWAs install to your device without needing an app store.</p>
+        <button class="button" id="button-notifications">enable notifications</button>
+        <div id="badging-area">
+          <input type="text" id="badge-count" value="1" />
+          <button id="button-set-badge">set app badge</button>
+          <p>Touching outside the "set app badge" button clears badges.</p>
+        </div>
+        <div id="status-area">
+          <h2>Status</h2>
+          <div class="show-for-portrait">orientation: portrait</div>
+          <div class="show-for-landscape">orientation: landscape</div>
+          <div class="show-for-installed">installed/browser: installed</div>
+          <div class="show-for-browser">installed/browser: browser</div>
         </div>
       </div>
-      <div class="wrapper">
-        <div class="content">
-          <h1>DGB ABOUT</h1>
-          <p>
-            This is a lil' starter with all the pieces you need to build a basic
-            PWA (progressive web app.) PWAs are cool because they can install to
-            your device like any other app on your phone — but they don't need
-            an app store.
-          </p>
-
-          <button class="button" id="button-notifications">
-            enable notifications
-          </button>
-
-          <div id="badging-area">
-            <input type="text" id="badge-count" value="1" />
-            <button id="button-set-badge">set app badge</button>
-            <p>
-              Touching anywhere outside the "set app badge" button clears
-              badges.
-            </p>
-          </div>
-
-          <div id="status-area">
-            <h2>Status</h2>
-            <div class="show-for-portrait">orientation: portrait</div>
-            <div class="show-for-landscape">orientation: landscape</div>
-            <div class="show-for-installed">installed/browser: installed</div>
-            <div class="show-for-browser">installed/browser: browser</div>
-          </div>
-        </div>
+    </div>
+    <footer class="footer">
+      <div class="tagline">
+        <b>Hello Installable</b><br />I'm at the web. I'm at the app.<br />I'm at the combination web and app.
       </div>
-
-      <!--- FOOTER: You can safely remove the Glitch footer (but tell your friends!) ✂ --->
-      <footer class="footer">
-        <div class="tagline">
-          <b>Hello Installable</b><br />
-          I'm at the web. I'm at the app.<br />
-          I'm at the combination web and app.
-        </div>
-        <a
-          class="btn--remix"
-          target="_top"
-          href="https://glitch.com/edit/#!/remix/glitch-hello-installable"
-        >
-          <img
-            src="https://cdn.glitch.com/605e2a51-d45f-4d87-a285-9410ad350515%2FLogo_Color.svg?v=1618199565140"
-            alt=""
-          />
-          Build your own PWA
-        </a>
-      </footer>
-    </main>
-  </body>
+      <a class="btn--remix" target="_top" href="https://glitch.com/edit/#!/remix/glitch-hello-installable">
+        <img src="https://cdn.glitch.com/605e2a51-d45f-4d87-a285-9410ad350515%2FLogo_Color.svg?v=1618199565140" alt="" />
+        Build your own PWA
+      </a>
+    </footer>
+  </main>
+</body>
 </html>
