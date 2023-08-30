@@ -6,16 +6,15 @@ export default defineConfig(async ({ command, mode }) => {
   return {
     build: {
       cssCodeSplit: false,
-      outDir: "build",
+      outDir: "build"
     },
     server: {
-      host: "0.0.0.0",
-      port: 3000,
+      host:"0.0.0.0",
+      port:3000,
       strictPort: true,
       hmr: {
-        clientPort: 443,
-      },
-    },
+        clientPort: 443
+      }
+    }
   };
 });
-
