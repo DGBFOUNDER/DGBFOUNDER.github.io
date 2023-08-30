@@ -37,15 +37,9 @@ function showInstalledBlocks() {
     document.querySelectorAll(".show-for-installed").forEach((el) => {
       el.style.display = "none";
     });
-  } else {
-    document.querySelectorAll(".show-for-browser").forEach((el) => {
-      el.style.display = "none";
-    });
-    document.querySelectorAll(".show-for-installed").forEach((el) => {
-      el.style.display = "block";
-    });
   }
 }
+
 
 showInstalledBlocks();
 
