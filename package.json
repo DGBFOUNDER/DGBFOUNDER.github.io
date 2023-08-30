@@ -2,7 +2,7 @@
   "name": "hello-installable",
   "version": "1.0.0",
   "description": "A simple starting point for your next installable PWA",
-  "main": "index.html",
+  "main": "index.js",
   "scripts": {
     "start": "vite",
     "build": "vite build",
