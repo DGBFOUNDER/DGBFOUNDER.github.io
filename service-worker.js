@@ -7,27 +7,10 @@
 // Specify what we want added to the cache for offline use
 self.addEventListener("install", (e) => {
   e.waitUntil(
+    // Give the cache a name
     caches.open("glitch-hello-installable-cache").then((cache) => {
-      return cache.addAll(["/", "/about.html", "/install.html", "/style.css", "/index.js"]);
-    })
-  );
-});
-
-self.addEventListener("activate", (e) => {
-  e.waitUntil(
-    // Delete outdated caches if needed
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames
-          .filter((cacheName) => {
-            // Check if the cache name doesn't match the current cache
-            return cacheName !== "glitch-hello-installable-cache";
-          })
-          .map((cacheName) => {
-            // Delete outdated cache
-            return caches.delete(cacheName);
-          })
-      );
+      // Cache the homepage and stylesheets - add any assets you want to cache!
+      return cache.addAll(["/", "/style.css", "/index.js"]);
     })
   );
 });
@@ -63,5 +46,3 @@ self.addEventListener("push", (e) => {
   // Finally...
   event.waitUntil(Promise.all(promises));
 });
-
-
