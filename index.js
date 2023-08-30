@@ -44,9 +44,8 @@ function showInstalledBlocks() {
       el.style.display = "block";
     });
   }
+  showInstalledBlocks();
 }
-
-showInstalledBlocks();
 
 /************************************************************************
 
@@ -57,6 +56,11 @@ Feature: Install reminder
 const installNudge = document.querySelector("#install-nudge");
 const closeButton = document.getElementById("close-button");
 const hideBanner = localStorage.getItem("hide-install-nudge");
+
+function handleCloseButton() {
+  localStorage.setItem("hide-install-nudge", true);
+  installNudge.style.display = "none";
+}
 
 if (!isInstalledPWA && installNudge && !hideBanner) {
   installNudge.style.display = "block";
