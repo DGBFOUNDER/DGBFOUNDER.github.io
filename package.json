@@ -2,7 +2,7 @@
   "name": "hello-installable",
   "version": "1.0.0",
   "description": "A simple starting point for your next installable PWA",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "start": "vite",
     "build": "vite build",
@@ -23,7 +23,13 @@
     "not dead"
   ],
   "engines": {
-    "node": 14.x"
+    "node": "16.x"
+  },
+  "repository": {
+    "url": "https://glitch.com/edit/#!/glitch-hello-installable"
+  },
+  "glitch": {
+    "projectType": "generated_static"
   },
   "author": "Jesse von Doom <jvondoom@fastly.com>",
   "auto": {
