@@ -23,10 +23,9 @@ Set a few booleans, detect install
 *************************************************************************/
 // Set isInstalledPWA if we're in app mode 😎
 const isInstalledPWA = window.matchMedia("(display-mode: standalone)").matches;
-// Check the user agent for iOS & Android (only for minor fixes — don't rely on user agent!)
+// Check the user agent for iOS & Android (only for minor fixes — don't rely on the user agent!)
 const isIOS = /(iPad|iPhone|iPod)/g.test(navigator.userAgent);
 const isAndroid = /android/i.test(navigator.userAgent);
-
 
 // add a helper class for ".show-for-installed" and ".show-for-browser"
 function showInstalledBlocks() {
@@ -76,7 +75,7 @@ if (!isInstalledPWA && installNudge && !hideBanner) {
 Feature: Notifications
 
 *************************************************************************/
-// add notifcation settings here:
+// add notification settings here:
 const enablePushNotifications = false; // true to enable
 const pushServerBaseURL = ""; // your full push server URL
 const VAPID_PUBLIC_KEY = ""; // public key from push server
@@ -108,12 +107,12 @@ window.addEventListener(
 function handlePermission() {
   // set the button and subsequent form to shown or hidden, depending on what the user answers
   if ("Notification" in window && buttonNotifications) {
-    // Mobile Safari errors out without checking for the Notification obj first
+    // Mobile Safari errors out without checking for the Notification object first
     if (Notification.permission !== "granted") {
       buttonNotifications.style.display = "block";
       pushNotificationPermissionGranted = true;
     } else {
-      // this looks extra but it clears the button after accepting permission on iOS
+      // this looks extra, but it clears the button after accepting permission on iOS
       buttonNotifications.style.display = "none";
     }
   }
@@ -189,7 +188,7 @@ Feature: Badging
 NOTE: badges require permission for Notifications to have been granted
 
 *************************************************************************/
-// grab badging elements and set initial badge value
+// grab badging elements and set the initial badge value
 const badgeCount = document.getElementById("badge-count");
 const buttonIncrementBadge = document.getElementById("button-set-badge");
 const badgingFeatures = document.getElementById("badging-area");
@@ -282,4 +281,3 @@ screen.orientation.addEventListener("change", function (e) {
 
 // show/hide orientation classes
 showOrientationBlocks();
-
