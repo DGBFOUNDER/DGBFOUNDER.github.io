@@ -147,6 +147,83 @@ async function subscribeToPush() {
   postToServer(`${pushServerBaseURL}/add-subscription`, subscription);
 }
 
+async function unsubscribeFromPush() {
+  const registration = await navigator.serviceWorker.getRegistration();
+  const subscription = await registration.pushManager.getSubscription();
+  postToServer(`${pushServerBaseURL}/remove-subscription`, {
+    endpoint: subscription.endpoint,
+  });
+  await subscription.unsubscribe();
+}
+
+// Utility functions for notifications
+async function postToServer(url, data) {
+  let response = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+}
+
+// Convert a base64 string to Uint8Array.
+// Must do this so the server can understand the VAPID_PUBLIC_KEY.
+function urlB64ToUint8Array(base64String) {
+  const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
+  const base64 = (base64String + padding)
+    .replace(/\-/g, "+")
+    .replace(/_/g, "/");
+  const rawData = window.atob(base64);
+  const outputArray = new Uint8Array(rawData.length);
+  for (let i = 0; i < rawData.length; ++i) {
+    outputArray[i] = rawData.charCodeAt(i);
+  }
+  return outputArray;
+}
+
+/************************************************************************
+
+Feature: Badging
+
+NOTE: badges require permission for Notifications to have been granted
+
+*************************************************************************/
+// grab badging elements and set initial badge value
+const badgeCount = document.getElementById("badge-count");
+const buttonIncrementBadge = document.getElementById("button-set-badge");
+const badgingFeatures = document.getElementById("badging-area");
+// set up badging notification handlers
+if (isInstalledPWA && badgingFeatures && pushNotificationPermissionGranted) {
+  badgingFeatures.style.display = "block";
+}
+if (buttonIncrementBadge) {
+  buttonIncrementBadge.addEventListener("click", (e) => {
+    e.stopPropagation();
+    setBadge(badgeCount.value);
+    console.log(`set badge to ${badgeCount.value}`);
+  });
+}
+
+function setBadge(total) {
+  if (navigator.setAppBadge) {
+    navigator.setAppBadge(total);
+  } else if (navigator.setExperimentalAppBadge) {
+    navigator.setExperimentalAppBadge(total);
+  } else if (window.ExperimentalBadge) {
+    window.ExperimentalBadge.set(total);
+  }
+}
+
+function clearBadge() {
+  if (navigator.clearAppBadge) {
+    navigator.clearAppBadge();
+  } else if (navigator.clearExperimentalAppBadge) {
+    navigator.clearExperimentalAppBadge();
+  } else if (window.ExperimentalBadge) {
+    window.ExperimentalBadge.clear();
+  }
+}
 
 /************************************************************************
 
@@ -205,4 +282,3 @@ screen.orientation.addEventListener("change", function (e) {
 
 // show/hide orientation classes
 showOrientationBlocks();
-
