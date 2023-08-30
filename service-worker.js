@@ -1,13 +1,6 @@
-/*
- * ServiceWorker to make site function as a PWA (Progressive Web App)
- *
- * Based on https://glitch.com/~pwa by https://glitch.com/@PaulKinlan
- */
-
-// Specify what we want added to the cache for offline use
 self.addEventListener("install", (e) => {
   e.waitUntil(
-    caches.open("DGB").then((cache) => {
+    caches.open("DGB").then(cache => {
       return cache.addAll(["/", "/about.html", "/install.html", "/style.css", "/index.js"]);
     })
   );
@@ -15,44 +8,27 @@ self.addEventListener("install", (e) => {
 
 self.addEventListener("activate", (e) => {
   e.waitUntil(
-    // Delete outdated caches if needed
-    caches.keys().then((cacheNames) => {
+    caches.keys().then(cacheNames => {
       return Promise.all(
-        cacheNames
-          .filter((cacheName) => {
-            // Check if the cache name doesn't match the current cache
-            return cacheName !== "DGB";
-          })
-          .map((cacheName) => {
-            // Delete outdated cache
-            return caches.delete(cacheName);
-          })
+        cacheNames.filter(cacheName => cacheName !== "DGB")
+          .map(cacheName => caches.delete(cacheName))
       );
     })
   );
 });
 
-// Network falling back to cache approach
-self.addEventListener("fetch", function (event) {
-  event.respondWith(
-    fetch(event.request).catch(function () {
-      return caches.match(event.request);
-    })
-  );
+self.addEventListener("fetch", event => {
+  event.respondWith(fetch(event.request).catch(() => caches.match(event.request)));
 });
 
-// Listen for push notifications
-self.addEventListener("push", (e) => {
+self.addEventListener("push", e => {
   const data = e.data.json();
-  let promises = [];
+  const promises = [];
 
   if ("setAppBadge" in self.navigator) {
-    // this is hard-coded to "1" because getNotifications is tricky?
-    const promise = self.navigator.setAppBadge(1);
-    promises.push(promise);
+    promises.push(self.navigator.setAppBadge(1));
   }
 
-  // Promise to show a notification
   promises.push(
     self.registration.showNotification(data.title, {
       body: data.body,
@@ -60,6 +36,5 @@ self.addEventListener("push", (e) => {
     })
   );
 
-  // Finally...
-  event.waitUntil(Promise.all(promises));
+  e.waitUntil(Promise.all(promises));
 });
