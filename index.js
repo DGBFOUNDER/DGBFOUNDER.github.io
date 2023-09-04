@@ -1,7 +1,5 @@
 /************************************************************************
-
 App setup
-
 *************************************************************************/
 // force https
 if (location.protocol === "http:") location.protocol = "https:";
@@ -15,19 +13,14 @@ if ("serviceWorker" in navigator) {
 } else {
   console.warn("Service Worker not supported in this browser");
 }
-
 /************************************************************************
-
 Set a few booleans, detect install
-
 *************************************************************************/
 // Set isInstalledPWA if we're in app mode 😎
 const isInstalledPWA = window.matchMedia("(display-mode: standalone)").matches;
 // Check the user agent for iOS & Android (only for minor fixes — don't rely on user agent!)
 const isIOS = /(iPad|iPhone|iPod)/g.test(navigator.userAgent);
 const isAndroid = /android/i.test(navigator.userAgent);
-
-
 // add a helper class for ".show-for-installed" and ".show-for-browser"
 function showInstalledBlocks() {
   if (!isInstalledPWA) {
@@ -46,47 +39,35 @@ function showInstalledBlocks() {
     });
   }
 }
-
 showInstalledBlocks();
-
 /************************************************************************
-
 Feature: Install reminder
-
 *************************************************************************/
 // figure out if we should show the install nudges
 const installNudge = document.querySelector("#install-nudge");
 const closeButton = document.getElementById("close-button");
 const hideBanner = localStorage.getItem("hide-install-nudge");
-
 function handleCloseButton() {
   localStorage.setItem("hide-install-nudge", true);
   installNudge.style.display = "none";
 }
-
 if (!isInstalledPWA && installNudge && !hideBanner) {
   installNudge.style.display = "block";
   closeButton.addEventListener("click", handleCloseButton);
 } else {
   installNudge.style.display = "none";
 }
-
 /************************************************************************
-
 Feature: Notifications
-
 *************************************************************************/
 // add notifcation settings here:
 const enablePushNotifications = false; // true to enable
 const pushServerBaseURL = ""; // your full push server URL
 const VAPID_PUBLIC_KEY = ""; // public key from push server
-
 // track permissions for the sake of badging
 let pushNotificationPermissionGranted = false;
-
 // grab notification elements
 const buttonNotifications = document.getElementById("button-notifications");
-
 if (buttonNotifications && enablePushNotifications) {
   // set up event notification handlers
   buttonNotifications.addEventListener("click", () => {
@@ -95,7 +76,6 @@ if (buttonNotifications && enablePushNotifications) {
   // execute our notification functions and set up the page elements
   handlePermission();
 }
-
 // touchstart event clears any active badges
 window.addEventListener(
   "touchstart",
@@ -104,7 +84,6 @@ window.addEventListener(
   },
   false
 );
-
 function handlePermission() {
   // set the button and subsequent form to shown or hidden, depending on what the user answers
   if ("Notification" in window && buttonNotifications) {
@@ -118,7 +97,6 @@ function handlePermission() {
     }
   }
 }
-
 function askNotificationPermission() {
   // Let's check if the browser supports notifications
   if (!("Notification" in window)) {
@@ -137,7 +115,6 @@ function askNotificationPermission() {
     });
   }
 }
-
 async function subscribeToPush() {
   const registration = await navigator.serviceWorker.getRegistration();
   const subscription = await registration.pushManager.subscribe({
@@ -146,7 +123,6 @@ async function subscribeToPush() {
   });
   postToServer(`${pushServerBaseURL}/add-subscription`, subscription);
 }
-
 async function unsubscribeFromPush() {
   const registration = await navigator.serviceWorker.getRegistration();
   const subscription = await registration.pushManager.getSubscription();
@@ -155,7 +131,6 @@ async function unsubscribeFromPush() {
   });
   await subscription.unsubscribe();
 }
-
 // Utility functions for notifications
 async function postToServer(url, data) {
   let response = await fetch(url, {
@@ -166,7 +141,6 @@ async function postToServer(url, data) {
     body: JSON.stringify(data),
   });
 }
-
 // Convert a base64 string to Uint8Array.
 // Must do this so the server can understand the VAPID_PUBLIC_KEY.
 function urlB64ToUint8Array(base64String) {
@@ -181,13 +155,9 @@ function urlB64ToUint8Array(base64String) {
   }
   return outputArray;
 }
-
 /************************************************************************
-
 Feature: Badging
-
 NOTE: badges require permission for Notifications to have been granted
-
 *************************************************************************/
 // grab badging elements and set initial badge value
 const badgeCount = document.getElementById("badge-count");
@@ -204,7 +174,6 @@ if (buttonIncrementBadge) {
     console.log(`set badge to ${badgeCount.value}`);
   });
 }
-
 function setBadge(total) {
   if (navigator.setAppBadge) {
     navigator.setAppBadge(total);
@@ -214,7 +183,6 @@ function setBadge(total) {
     window.ExperimentalBadge.set(total);
   }
 }
-
 function clearBadge() {
   if (navigator.clearAppBadge) {
     navigator.clearAppBadge();
@@ -224,13 +192,9 @@ function clearBadge() {
     window.ExperimentalBadge.clear();
   }
 }
-
 /************************************************************************
-
 Feature: Orientation changes
-
 *************************************************************************/
-
 // just an example of what can be done detecting orientation
 // sets up helper classes `.show-for-portrait` and `.show-for-landscape`
 // also good for taking video fullscreen, moving nav elements, etc.
@@ -258,7 +222,6 @@ function showOrientationBlocks() {
     });
   }
 }
-
 // fix for iPhone zoom issues after orientation changes
 // see: http://www.menucool.com/McMenu/prevent-page-content-zooming-on-mobile-orientation-change
 function rotateWithNoScale() {
@@ -271,7 +234,6 @@ function rotateWithNoScale() {
     }, 100);
   }
 }
-
 // actually detect the orientation changes and reapply
 screen.orientation.addEventListener("change", function (e) {
   if (isIOS) {
@@ -279,8 +241,5 @@ screen.orientation.addEventListener("change", function (e) {
   }
   showOrientationBlocks();
 });
-
 // show/hide orientation classes
 showOrientationBlocks();
-
-  
