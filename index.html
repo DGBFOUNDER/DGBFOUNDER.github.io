@@ -1,373 +1,69 @@
 <!DOCTYPE html>
-
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>rownox's portfolio</title>
-    <link href="styles/styles.css" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/f93b343dac.js" crossorigin="anonymous"></script>
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
-  </head>
-  <nav>
-    <div class="navContainer" id="nav">
-      <div class="navbar">
-        <div class="logo">
-          <img src="images/Rlogo.png">
-          <h1>rownox</h1>
+<html lang="en">
+<head>
+  <style>
+    body { margin: 0; font-family: Arial, Helvetica, sans-serif; }
+    .topnav { overflow: hidden; background-color: #333; }
+    .topnav a { float: left; color: #f2f2f2; text-align: center; padding: 0; text-decoration: none; font-size: 17px; }
+    .topnav a.active { background-color: #04aa6d; color: white; float: left; color: #f2f2f2; text-align: center; padding: 14px 16px; text-decoration: none; font-size: 17px; }
+    .topnav a.inactive { float: left; color: #f2f2f2; text-align: center; padding: 14px 16px; text-decoration: none; font-size: 17px; }
+  </style>
+  <title>DEGALAND HOMEPAGE</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A simple starting point for your next installable PWA" />
+  <meta name="og:description" content="A simple starting point for your next installable PWA" />
+  <meta property="og:image" content="https://media.discordapp.net/attachments/1063685213206614058/1122985806915710976/Untitled_1.jpg?width=1150&height=1150" />
+  <meta property="og:title" content="Hello Installable" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="icon" href="https://media.discordapp.net/attachments/1063685213206614058/1122985806915710976/Untitled_1.jpg?width=1150&height=1150" />
+  <link rel="stylesheet" type="text/css" href="/style.css" />
+  <link rel="manifest" href="manifest.json" />
+  <script src="index.js" async defer></script>
+  <div class="topnav">
+    <a href="/"><img src="https://media.discordapp.net/attachments/833455842728607775/928856356818137099/BtDNvObvhXcAAAAAElFTkSuQmCC.png?width=1065&height=1065" style="width: 44px; height: 44px" /></a>
+    <a class="active" href="/">Home</a>
+    <a class="inactive" href="about.html">News</a>
+    <a class="inactive" href="install.html">Install</a>
+  </div>
+</head>
+<body>
+  <main>
+    <div id="install-nudge">
+      <div class="content">
+        <div>You can install this app — no app store needed!</div>
+        <a href="install.html" class="install">INSTALL</a>
+        <a id="close-button" class="close">&#215;</a>
+      </div>
+    </div>
+    <div class="wrapper">
+      <div class="content">
+        <h1>DGB</h1>
+        <p>This is a starter for building a basic PWA. PWAs install to your device without needing an app store.</p>
+        <button class="button" id="button-notifications">enable notifications</button>
+        <div id="badging-area">
+          <input type="text" id="badge-count" value="1" />
+          <button id="button-set-badge">set app badge</button>
+          <p>Touching outside the "set app badge" button clears badges.</p>
         </div>
-        <div class="navigation">
-          <li><a href="#">About</a></li>
-          <li><a href="#Skills">Skills</a></li>
-          <li><a href="#Projects">Projects</a></li>
+        <div id="status-area">
+          <h2>Status</h2>
+          <div class="show-for-portrait">orientation: portrait</div>
+          <div class="show-for-landscape">orientation: landscape</div>
+          <div class="show-for-installed">installed/browser: installed</div>
+          <div class="show-for-browser">installed/browser: browser</div>
         </div>
       </div>
     </div>
-  </nav>
-  <nav>
-    <div class="newNavBar">
-      <div class="navigation">
-        <li><a href="#">About</a></li>
-        <li><a href="#Skills">Skills</a></li>
-        <li><a href="#Projects">Projects</a></li>
+    <footer class="footer">
+      <div class="tagline">
+        <b>Hello Installable</b><br />I'm at the web. I'm at the app.<br />I'm at the combination web and app.
       </div>
-    </div>
-  </nav>
-  <body>
-    <div class="mainContent">
-      <div class="about">
-        <div class="introduction">
-          <div class="left">
-            <div class="introTextContainer">
-              <div class="introText">
-                <h1>Hello, I'm <strong>rownox</strong></h1>
-                <h2>Software Developer</h2>
-                <h2 class="c">Digital Designer</h2>
-                <p>
-                  In programming, I specialize in engineering and designing full-stack technology. I am also an experienced graphic designer with multiple successful projects. Currently, I'm studying machine learning.
-                </p>
-              </div>
-            </div>
-            <div class="introButtonContainer">
-              <div class="introButton">
-                <a href="#Projects">
-                  <button class="btn">
-                    <svg width="150px" height="60px" viewBox="0 0 150 60" class="border">
-                      <polyline points="149,1 149,59 1,59 1,1 149,1" class="bg-line" />
-                      <polyline points="149,1 149,59 1,59 1,1 149,1" class="hl-line" />
-                    </svg>
-                    <span>Explore</span>
-                  </button>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="right">
-            <div class="introLinksContainer">
-              <div class="introLinks">
-                <div class="top">
-                  
-                  <a href="https://github.com/rownox" target="_blank" class="github">
-                    <div class="linkButton">
-                      <i class="fa-brands fa-github"></i>
-                    </div>
-                  </a>
-                  <a href="https://github.com/rownox" target="_blank" class="github">
-                    <div class="linkButton">
-                      <i class="fa-brands fa-discord"></i>
-                    </div>
-                  </a>
-                  <a href="https://github.com/rownox" target="_blank" class="github">
-                    <div class="linkButton">
-                      <i class="fa-brands fa-linkedin-in"></i>
-                    </div>
-                  </a>
-                </div>
-                <div class="bottom">
-                  <div class="introLastLine"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id="Skills" class="skills-container">
-        <h1>Technical Expertise</h1>
-        <div class="stack-container">
-          <div class="stack-padding">
-            <h2>Programming</h2>
-            <div class="stack">
-              <div class="button">
-                <span class="background" style="background-color: #de7c05;">
-                  <i class="devicon-java-plain"></i>
-                </span>
-                <span><p>Java</p></span>
-              </div>
-              <div class="button">
-                <span class="background" style="background-color: #306998;">
-                  <i class="devicon-python-plain"></i>
-                </span>
-                <span><p>Python</p></span>
-              </div>
-              <div class="button">
-                <span class="background" style="background-color: #F0DB4F;">
-                  <i class="devicon-javascript-plain" style="color: #323330;"></i>
-                </span>
-                <span><p>JavaScript</p></span>
-              </div>
-              <div class="button">
-                <span class="background" style="background-color: #000080;">
-                  <i class="devicon-lua-plain"></i>
-                </span>
-                <span><p>Lua</p></span>
-              </div>
-              <div class="button">
-                <span class="background" style="background-color: #1a71d4;">
-                  <i class="devicon-postgresql-plain"></i>
-                </span>
-                <span><p>PostgreSQL</p></span>
-              </div>
-              <div class="button">
-                <span class="background" style="background-color: #268ee3;">
-                  <i class="devicon-mysql-plain"></i>
-                </span>
-                <span><p>MySQL</p></span>
-              </div>
-              <div class="button">
-                <span class="background" style="background-color: #264de4;">
-                  <i class="devicon-css3-plain"></i>
-                </span>
-                <span><p>CSS3</p></span>
-              </div>
-              <div class="button">
-                <span class="background" style="background-color: #e34c26;">
-                  <i class="devicon-html5-plain"></i>
-                </span>
-                <span><p>HTML5</p></span>
-              </div>
-              <div class="button">
-                <span class="background" style="background-color: #0957b0;">
-                  <i class="devicon-r-plain"></i>
-                </span>
-                <span><p>R</p></span>
-              </div>
-              <div class="button">
-                <span class="background" style="background-color: #ff3e00;">
-                  <i class="devicon-svelte-plain"></i>
-                </span>
-                <span><p>Svelte</p></span>
-              </div>
-              <div class="button">
-                <span class="background" style="background-color: #64d8f9;">
-                  <i class="devicon-react-original"></i>
-                </span>
-                <span><p>ReactJS</p></span>
-              </div>
-              <div class="button">
-                <span class="background" style="background-color: #000000;">
-                  <i class="devicon-jetbrains-plain"></i>
-                </span>
-                <span><p>Jetbrains</p></span>
-              </div>
-              <div class="button">
-                <span class="background" style="background-color: #000000;">
-                  <i class="devicon-dotnetcore-plain"></i>
-                </span>
-                <span><p>.NET Core</p></span>
-              </div>
-              <div class="button">
-                <span class="background" style="background-color: #cc6698;">
-                  <i class="devicon-sass-original"></i>
-                </span>
-                <span><p>Sass</p></span>
-              </div>
-              <div class="button">
-                <span class="background" style="background-color: #689f63;">
-                  <i class="devicon-nodejs-plain"></i>
-                </span>
-                <span><p>NodeJS</p></span>
-              </div>
-              <div class="button">
-                <span class="background" style="background-color: #1484de;">
-                  <i class="devicon-vscode-plain"></i>
-                </span>
-                <span><p>Visual Studio Code</p></span>
-              </div>
-              <div class="button">
-                <span style="background-color: #1e6add;">
-                  <i class="devicon-arduino-plain"></i>
-                </span>
-                <span><p>Arduino</p></span>
-              </div>
-            </div>
-            <button>Explore Details</button>
-          </div>
-        </div>
-        <div class="stack-container">
-          <div class="stack-padding">
-            <h2>Digital Design</h2>
-            <div class="stack">
-              <div class="button">
-                <span style="background-color: #E31D1A;">
-                  <img class="invert" src="./images/solidworks2.svg">
-                </span>
-                <span><p>SOLIDWORKS</p></span>
-              </div>
-              <div class="button">
-                <span style="background-color: #32B6A9;">
-                  <img class="invert" src="./images/AutodeskCopy.svg">
-                </span>
-                <span><p>Autodesk</p></span>
-              </div>
-              <div class="button">
-                <span style="background-color: #FF7021;">
-                  <i class="devicon-blender-original"></i>
-                </span>
-                <span><p>Blender</p></span>
-              </div>
-              <div class="button">
-                <span style="background-color: #000000;">
-                  <i class="devicon-unity-original"></i>
-                </span>
-                <span><p>Unity 3D</p></span>
-              </div>
-              <div class="button">
-                <span style="background-color: #000000;">
-                  <i class="devicon-unrealengine-original"></i>
-                </span>
-                <span><p>Unreal Engine</p></span>
-              </div>
-              <div class="button">
-                <span style="background-color: #000000;">
-                  <i class="devicon-gimp-plain"></i>
-                </span>
-                <span><p>Gimp</p></span>
-              </div>
-              <div class="button">
-                <span style="background-color: #053B75;">
-                  <img class="invert" src="./images/icons8-adobe-photoshop.svg">
-                </span>
-                <span><p>Photoshop</p></span>
-              </div>
-              <div class="button">
-                <span style="background-color: #00005C;">
-                  <img class="invert" src="./images/icons8-adobe-after-effects.svg">
-                </span>
-                <span><p>After Effects</p></span>
-              </div>
-              <div class="button">
-                <span style="background-color: #330000;">
-                  <img class="invert" src="./images/icons8-adobe-illustrator.svg">
-                </span>
-                <span><p>Illustrator</p></span>
-              </div>
-              <div class="button">
-                <span style="background-color: #00005B;">
-                  <img class="invert" src="./images/icons8-adobe-premiere-pro.svg">
-                </span>
-                <span><p>Premiere Pro</p></span>
-              </div>
-            </div>
-            <button>Explore Details</button>
-          </div>
-        </div>
-      </div>
-      <div id="Projects" class="projects-container">
-        <h1>Featured Projects</h1>
-
-        <a href="" class="project-container">
-          <div class="project-padding">
-            <img class="image" src="./images/tazpvp.png">
-            <div class="info">
-              <div class="text">
-                <h2>Tazpvp</h2>
-                <p>A Minecraft plugin that utilizes the Spigot API to create a minigame logic core for the Tazpvp minecraft server including many features.</p>
-              </div>            
-              <div class="tools">
-                <i>Java</i>
-                <i>SQL</i>
-                <i>PostgreSQL</i>
-                <i>JavaScript</i>
-                <i>Svelte</i>
-                <i>IntelliJ</i>
-              </div>
-            </div>
-          </div>
-          
-        </a>
-
-        <a href="" class="project-container">
-          <div class="project-padding">
-            <img class="image" src="./images/rowmissile.png">
-            <div class="info">
-              <div class="text">
-                <h2>RowMissiles</h2>
-                <p>A Minecraft plugin with a completely configurable missile system and lots of features.</p>
-              </div>            
-              <div class="tools">
-                <i>Java</i>
-                <i>IntelliJ</i>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <a href="" class="project-container">
-          <div class="project-padding">
-            <img class="image" src="./images/particle.png">
-            <div class="info">
-              <div class="text">
-                <h2>RowParticles</h2>
-                <p>A Minecraft API complete with simple particles that can be accessed and changed to a developers needs.</p>
-              </div>            
-              <div class="tools">
-                <i>Java</i>
-                <i>IntelliJ</i>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <a href="" class="project-container">
-          <div class="project-padding">
-            <img class="image" src="./images/gens.png">
-            <div class="info">
-              <div class="text">
-                <h2>RowGens</h2>
-                <p>A simple Minecraft plugin made for generator servers with upgradeable generators and Vault economy compatability.</p>
-              </div>            
-              <div class="tools">
-                <i>Java</i>
-                <i>IntelliJ</i>
-              </div>
-            </div>
-          </div>
-        </a>
-
-      </div>
-      <div class="footer-container">
-        <div class="footerBorder">
-        </div>
-      </div>
-    </div>
-  </body>
+      <a class="btn--remix" target="_top" href="https://glitch.com/edit/#!/remix/glitch-hello-installable">
+        <img src="https://cdn.glitch.com/605e2a51-d45f-4d87-a285-9410ad350515%2FLogo_Color.svg?v=1618199565140" alt="" />
+        Build your own PWA
+      </a>
+    </footer>
+  </main>
+</body>
 </html>
-
-<script>
-  scrolled = false;
-  document.getElementById("nav").style.transition = "all 0.1s";
-  window.onscroll = function() {
-    
-    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-      if (!scrolled) {
-        scrolled = true;
-        document.getElementById("nav").style.backgroundColor = "#0a0c0e";
-      }
-    } else {
-      document.getElementById("nav").style.backgroundColor = "#111316";
-      scrolled = false;
-    }
-  }
-</script>
